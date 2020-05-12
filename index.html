@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Vending Machine</title>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div
+          class="col-12 d-flex justify-content-center py-5 bg-primary text-light"
+        >
+          <h1>Vending Machine</h1>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div class="row d-flex flex-column justify-content-center py-3">
+        <div class="col-3">
+          <button
+            class="btn btn-button btn-success"
+            onclick="app.vendrController.process(20)"
+          >
+            Insert $20:
+          </button>
+        </div>
+        <div class="col-3"><h3>Funds Available:</h3></div>
+        <div class="col-6 d-flex">
+          <span>$</span>
+          <span id="availableFunds" class="d-flex text-center border">
+            0.00
+          </span>
+        </div>
+      </div>
+      <!-- AVAILABLE ITEMS -->
+      <div class="row">
+        <!-- START ITEM TEMPLATE -->
+        <div
+          class="col-12 card text-center shadow order-1 col-md-6 d-flex justify-content-center p-3"
+        >
+          <div>
+            <div id="item1qty" class="quantity d-flex text-right text-dark">
+              Available: 10 @ 50ml
+            </div>
+            <b><span id="item1cost">$6.66</span></b>
+            <img src="./img/Laphroaig.png" alt="ItemImage" />
+            <button
+              class="btn btn-button btn-success"
+              onclick="moveItemToCart(item1)"
+            >
+              I1
+            </button>
+          </div>
+        </div>
+        <!-- END ITEM TEMPLATE -->
+        <div
+          class="col-12 card text-center shadow order-2 col-md-6 d-flex justify-content-center p-3"
+        >
+          <div>
+            <div id="item2qty" class="quantity d-flex text-right text-dark">
+              Available: 10 @ 50ml
+            </div>
+            <b><span id="item2cost">$14.00</span></b>
+            <img src="./img/Talisker.png" alt="ItemImage" />
+            <button
+              class="btn btn-button btn-success"
+              onclick="moveItemToCart(item2)"
+            >
+              I2
+            </button>
+          </div>
+        </div>
+        <div
+          class="col-12 card text-center shadow order-3 col-md-6 d-flex justify-content-center p-3"
+        >
+          <div>
+            <div id="item3qty" class="quantity d-flex text-right text-dark">
+              Available: 10 @ 50ml
+            </div>
+            <b><span id="item3cost">$11.33</span></b>
+            <img src="./img/CaolIla.png" alt="ItemImage" />
+            <button
+              class="btn btn-button btn-success"
+              onclick="moveItemToCart(item3)"
+            >
+              I3
+            </button>
+          </div>
+        </div>
+        <div
+          class="col-12 card text-center shadow order-4 col-md-6 d-flex justify-content-center p-3"
+        >
+          <div>
+            <div id="item1qty" class="quantity d-flex text-right text-dark">
+              Available: 10 @ 50ml
+            </div>
+            <b><span id="item4cost">$200.00</span></b>
+            <img src="./img/PortEllen.png" alt="ItemImage" />
+            <button
+              class="btn btn-button btn-success"
+              onclick="moveItemToCart(item4)"
+            >
+              I4
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VEND/PURCHASE ITEMS IN CART -->
+      <div class="row d-flex py-5">
+        <div class="col-6 d-flex justify-content-center">
+          <button class="btn btn-button vend btn-info">Vend</button>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+          <button
+            class="btn btn-button btn-danger restock"
+            onclick="game.service.restocck()"
+          >
+            Restock
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex bg-primary text-center text-light">
+          Enjoy Islay!
+        </div>
+      </div>
+    </footer>
+    <script src="./app/main.js" type="module"></script>
+  </body>
+</html>

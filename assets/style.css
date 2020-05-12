@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.text-light {
+  text-shadow: 1px 1px 5px black;
+}
+
+/* div {
+  border: 1px solid red;
+} */
