@@ -1,4 +1,6 @@
+import store from "../store.js"
 import Scotch from "../Models/Scotch.js";
+
 // "ID" "Brand", "Type", age, ABV, volume, $USD, quantity
 let _I1 = new Scotch(
   "I1",
