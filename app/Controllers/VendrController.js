@@ -5,22 +5,32 @@ let _vendrService = new VendrService();
 function _drawMoneyIn() {
   document.getElementById(
     "availableFunds"
-  ).innerText = _vendrService.Funds.toString();
+  ).innerText = _vendrService.Funds.toFixed(2);
 }
+// function _drawCartTotal() {
+//   document.getElementById.prototype(
+//     "cartTotal"
+//   ).innerText = _vendrService.cartTotal.toFixed();
+// }
+// function _drawShelves() {
+//   document.getElementsByName("restock").innerText = 10.toString();
+// }
 
 export default class VendrController {
   constructor() {
     console.log("Hello from the vendr Controller");
   }
 
-  process(funds) {
-    // accept $20 denominations only
-    // $20/click
-    // add to funds available
-    _vendrService.process(funds);
+  addFunds(funds) {
+    // $20/click - add to vendrService _funds
+    _vendrService.addFunds(funds);
     _drawMoneyIn();
   }
 
+  addItemToCart(itemID) {
+    _vendrService.addItemToCart(itemID);
+    _drawCartTotal();
+  }
   vend() {
     // select item
     // subtract from funds available
@@ -31,10 +41,10 @@ export default class VendrController {
     console.log("hello from vend@VendrController");
   }
 
-  restock() {
+  restockShelves(value) {
     // return all quantities to 10
     // set all buttons to active
-    _vendrService.restock();
-    _draw();
+    _vendrService.restockShelves(value);
+    _drawShelves();
   }
 }

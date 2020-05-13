@@ -1,5 +1,6 @@
 export default class Scotch {
-  constructor(brand, type, age, abv, volume, price, quantity, image) {
+  constructor(id, brand, type, age, abv, volume, price, quantity, image) {
+    this.id = id; //vending machine location
     this.brand = brand;
     this.type = type;
     this.age = age; // years
