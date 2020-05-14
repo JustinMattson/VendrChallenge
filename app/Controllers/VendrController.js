@@ -1,20 +1,20 @@
+import _store from "../store.js";
 import VendrService from "../Services/VendrService.js";
 
 let _vendrService = new VendrService();
 
-function _drawMoneyIn() {
-  document.getElementById(
-    "availableFunds"
-  ).innerText = _vendrService.Funds.toFixed(2);
+function _draw() {
+  document.getElementById("availableFunds").innerText = _store.Funds.toFixed(2);
+  document.getElementById("selection").innerText = _store.Selection;
+  document.getElementById("itemPrice").innerText = _store.Price.toFixed(2);
+  if (!_store.Insufficient) {
+    document.getElementById("vend").classList.remove("btn-danger");
+    document.getElementById("vend").classList.add("btn-info");
+  } else {
+    document.getElementById("vend").classList.remove("btn-info");
+    document.getElementById("vend").classList.add("btn-danger");
+  }
 }
-// function _drawCartTotal() {
-//   document.getElementById.prototype(
-//     "cartTotal"
-//   ).innerText = _vendrService.cartTotal.toFixed();
-// }
-// function _drawShelves() {
-//   document.getElementsByName("restock").innerText = 10.toString();
-// }
 
 export default class VendrController {
   constructor() {
@@ -24,12 +24,12 @@ export default class VendrController {
   addFunds(funds) {
     // $20/click - add to vendrService _funds
     _vendrService.addFunds(funds);
-    _drawMoneyIn();
+    _draw();
   }
 
-  addItemToCart(itemID) {
-    _vendrService.addItemToCart(itemID);
-    _drawCartTotal();
+  selectItem(itemID) {
+    _vendrService.selectItem(itemID);
+    _draw();
   }
   vend() {
     // select item
