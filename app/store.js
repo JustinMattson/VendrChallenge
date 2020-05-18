@@ -1,8 +1,8 @@
 import Scotch from "./Models/Scotch.js";
 
 let _state = {
-  /** @type {Scotch[]} */
   scotches: [
+    /** @type {Scotch[]} */
     new Scotch({
       id: "I1",
       brand: "Laphroaig",
@@ -89,6 +89,9 @@ class Store {
   }
   selectItem(itemID) {
     let _item = _state.scotches.find((s) => s.id == itemID);
+    console.log(_item);
+    console.log("^store^");
+
     _selection = _item.brand;
     _price = _item.price;
     _quantity = _item.quantity;
